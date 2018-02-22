@@ -77,7 +77,7 @@ public class Game {
             checkCollision.trumpCollision();
 
         }
-        
+
         restartGame();
         resetElements();
         initGame();
