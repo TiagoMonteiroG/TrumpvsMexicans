@@ -6,9 +6,10 @@ public class Money extends Item {
 
     private ScoreBoard scoreBoard;
 
-    public Money(int x, int y, String source) {
+    public Money(int x, int y, String source, ScoreBoard scoreBoard) {
         super(x, y, source);
-        this.scoreBoard = new ScoreBoard(70, 850);
+        this.scoreBoard = scoreBoard;
+
     }
 
     public void move() {
@@ -20,6 +21,7 @@ public class Money extends Item {
 
         if (getY() == 860) {
 
+            scoreBoard.reduceScore(100);
             getPicture().delete();
             setMove(false);
             getPicture().translate(0, -960);
@@ -28,7 +30,8 @@ public class Money extends Item {
         }
 
         if (colide()) {
-            scoreBoard.setScore(100);
+
+            scoreBoard.incrementScore(100);
             getPicture().delete();
             setMove(false);
             getPicture().translate(0, -960);
@@ -36,7 +39,6 @@ public class Money extends Item {
             setColide(false);
 
         }
-        scoreBoard.setText(scoreBoard.getScore());
     }
 
     @Override

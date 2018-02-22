@@ -15,7 +15,6 @@ public class Game {
 
     private Money[] money;
     private Latino[] latino;
-    private ScoreBoard scoreBoard;
     private StartMenu startMenu;
     private KeyHandler k;
     private boolean gameOver;
@@ -29,8 +28,8 @@ public class Game {
 
     public void startGame() throws InterruptedException {
 
-
         GameGrid gameGrid = new GameGrid("assets/back.png");
+        ScoreBoard scoreBoard = new ScoreBoard(70,850);
 
         Trump trump = new Trump(250, 760, "assets/trump.png");
         k = new KeyHandler(trump);
@@ -40,7 +39,7 @@ public class Game {
         }
 
         for (int i = 0; i < money.length; i++) {
-            money[i] = new Money((int) Math.floor((Math.random() * 580 + 10)), -100, "assets/money.png");
+            money[i] = new Money((int) Math.floor((Math.random() * 580 + 10)), -100, "assets/money.png",scoreBoard );
 
         }
 

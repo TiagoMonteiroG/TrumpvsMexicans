@@ -16,18 +16,13 @@ public class ScoreBoard {
         text.grow(40,40);
     }
 
-    public void setScore(int points) {
+    public void incrementScore(int points) {
         score += points ;
-
-    }
-
-    public void setText(int score) {
         this.text.setText("Score : " + score);
     }
 
-    public int getScore(){
-        return score;
+    public void reduceScore(int points){
+        score -= points;
+        this.text.setText("Score : " + score);
     }
-
-
 }
