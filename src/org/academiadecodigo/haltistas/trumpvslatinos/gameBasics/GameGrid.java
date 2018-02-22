@@ -4,7 +4,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class GameGrid {
 
-    public static final int PADDING = 10;
+    private static final int PADDING = 10;
 
 
     public GameGrid(String source) {

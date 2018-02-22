@@ -15,7 +15,7 @@ public class Game {
 
     public Game() {
         this.money = new Money[10];
-        this.latino = new Latino[25];
+        this.latino = new Latino[20];
     }
 
 
