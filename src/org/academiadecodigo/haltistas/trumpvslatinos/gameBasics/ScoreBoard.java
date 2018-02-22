@@ -20,6 +20,10 @@ public class ScoreBoard {
     }
 
     public void increaseScore(int points) {
-        score += points ;
+        score = points ;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }

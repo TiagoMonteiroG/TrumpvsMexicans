@@ -3,11 +3,10 @@ package org.academiadecodigo.haltistas.trumpvslatinos.gameBasics;
 import org.academiadecodigo.haltistas.trumpvslatinos.gameObjects.GameObject;
 
 public class CheckCollision {
-    GameObject[] latino;
-    GameObject[] paper;
-    GameObject[] money;
-    GameObject trump;
-
+    private GameObject[] latino;
+    private GameObject[] paper;
+    private GameObject[] money;
+    private GameObject trump;
 
     public CheckCollision(GameObject[] latino, GameObject[] paper, GameObject[] money, GameObject trump) {
         this.latino = latino;
@@ -17,26 +16,24 @@ public class CheckCollision {
 
     }
 
-
     public void latinoCollision() {
 
+        for (GameObject l : latino) {
+            for (GameObject p : paper) {
 
-        for (int i = 0; i < latino.length; i++) {
-            for (int j = 0; j < paper.length; j++) {
+                if (p != null) {
+                    if (((l.getX() < p.getX() &&
+                            p.getX() < l.getX1()) ||
 
-                if (paper[j] != null) {
-                    if (((latino[i].getX() < paper[j].getX() &&
-                            paper[j].getX() < latino[i].getX1()) ||
+                            (l.getX() < p.getX1() &&
+                                    p.getX1() < l.getX1())) &&
 
-                            (latino[i].getX() < paper[j].getX1() &&
-                                    paper[j].getX1() < latino[i].getX1())) &&
-
-                            (latino[i].getY() < paper[j].getY() &&
-                                    paper[j].getY() < latino[i].getY1())) {
+                            (l.getY() < p.getY() &&
+                                    p.getY() < l.getY1())) {
 
 
-                        latino[i].setColide(true);
-                        paper[j].setColide(true);
+                        l.setColide(true);
+                        p.setColide(true);
                     }
                 }
             }
@@ -47,19 +44,14 @@ public class CheckCollision {
 
     public void trumpCollision() {
 
-        for (int i = 0; i < money.length; i++) {
 
-           if (money[i].getXBottom() >= trump.getY() && (money[i].getX() > trump.getX() &&
-                   trump.getX1() > money[i].getX()))
-                {
-               money[i].setColide(true);
+        for (GameObject m : money) {
 
-           }
+            if (m.getXBottom() >= trump.getY() && (m.getX() > trump.getX() &&
+                    trump.getX1() > m.getX())) {
+                m.setColide(true);
+            }
 
         }
-
-
     }
-
-
 }

@@ -27,20 +27,6 @@ public class Game {
         this.latino = new Latino[5];
     }
 
-    /*public void initGame() throws InterruptedException {
-        k = new KeyHandler(trump);
-        k.init();
-
-         startMenu = new StartMenu("assets/start.png");
-
-
-        if (gameStart) {
-            startGame();
-            return;
-        }
-
-     }*/
-
 
     public void startGame() throws InterruptedException {
 
@@ -59,7 +45,7 @@ public class Game {
 
         }
 
-        CheckCollision checkCollision = new CheckCollision (latino, trump.getPaper(), money, trump );
+        CheckCollision checkCollision = new CheckCollision(latino, trump.getPaper(), money, trump);
 
 
         scoreBoard = new ScoreBoard(70, 850);
@@ -71,18 +57,17 @@ public class Game {
             trump.move();
             Thread.sleep(30);
             trump.paperShoot();
-
-            checkCollision.latinoCollision();
-            checkCollision.trumpCollision();
-
             moneyMove();
             latinMove();
+            checkCollision.latinoCollision();
+            checkCollision.trumpCollision();
 
         }
 
     }
 
-    public void latinMove(){
+
+    public void latinMove() {
 
         for (Latino l : latino) {
             if (l.getMove()) {
@@ -96,7 +81,7 @@ public class Game {
     }
 
 
-    public void moneyMove(){
+    public void moneyMove() {
 
         for (Money m : money) {
             if (m.getMove()) {
@@ -109,10 +94,5 @@ public class Game {
         }
 
     }
-
-    public void setGameStart (boolean start) {
-        gameStart = start;
-    }
-
 }
 

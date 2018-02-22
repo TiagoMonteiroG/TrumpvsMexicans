@@ -19,17 +19,17 @@ public class Money extends Item {
 
             getPicture().delete();
             setMove(false);
-            getPicture().translate(0,-960);
+            getPicture().translate(0, -960);
             getPicture().draw();
 
         }
 
-        if(colide()){
+        if (colide()) {
             getPicture().delete();
             setMove(false);
             getPicture().translate(0, -960);
-           getPicture().draw();
-           setColide(false);
+            getPicture().draw();
+            setColide(false);
 
         }
     }
