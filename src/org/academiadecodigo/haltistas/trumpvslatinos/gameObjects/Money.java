@@ -14,7 +14,7 @@ public class Money extends Item {
 
     public void move() {
 
-        if (getMove() && getY() < 860) {
+        if (canMove() && getY() < 860) {
             translate(0, 4);
 
         }
@@ -36,7 +36,7 @@ public class Money extends Item {
             setMove(false);
             getPicture().translate(0, -960);
             getPicture().draw();
-            setColide(false);
+            setCollide(false);
 
         }
     }

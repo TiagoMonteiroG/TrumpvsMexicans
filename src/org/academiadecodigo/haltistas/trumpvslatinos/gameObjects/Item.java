@@ -20,11 +20,19 @@ public abstract class Item extends GameObject implements Movable {
 
     }
 
+    public void start() {
+        move = true;
+    }
+
+    public void stop() {
+        move = false;
+    }
+
     public void setMove (boolean change) {
         move = change;
     }
 
-    public boolean getMove () {
+    public boolean canMove() {
         return move;
     }
 

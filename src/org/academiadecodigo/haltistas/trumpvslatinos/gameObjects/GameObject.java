@@ -5,7 +5,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public abstract class GameObject  {
 
-    private boolean colide = false;
+    private boolean collide = false;
     private int x;
     private int y;
     private Picture picture;
@@ -64,14 +64,14 @@ public abstract class GameObject  {
     }
 
 
-    public void setColide (boolean colision ){
+    public void setCollide(boolean colision ){
 
-        colide = colision;
+        collide = colision;
     }
 
     public boolean colide (){
 
-        return colide;
+        return collide;
     }
 
 

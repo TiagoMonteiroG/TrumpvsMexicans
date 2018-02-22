@@ -1,6 +1,7 @@
 package org.academiadecodigo.haltistas.trumpvslatinos;
 
 import org.academiadecodigo.haltistas.trumpvslatinos.gameBasics.*;
+import org.academiadecodigo.haltistas.trumpvslatinos.gameObjects.GameObject;
 import org.academiadecodigo.haltistas.trumpvslatinos.gameObjects.Latino;
 import org.academiadecodigo.haltistas.trumpvslatinos.gameObjects.Money;
 import org.academiadecodigo.haltistas.trumpvslatinos.gameObjects.Trump;
@@ -12,8 +13,10 @@ public class Game {
     private Latino[] latino;
     private StartMenu startMenu;
     private KeyHandler k;
-    private boolean gameOver;
-    private boolean gameStart = false;
+
+    private boolean playing;
+    private GameGrid gameGrid;
+
 
     public Game() {
         this.money = new Money[10];
@@ -22,7 +25,7 @@ public class Game {
 
     public void initGame() throws InterruptedException {
 
-        GameGrid gameGrid = new GameGrid("assets/back.png");
+        gameGrid = new GameGrid("assets/back.png");
 
         trump = new Trump(250, 760, "assets/trump.png");
 
@@ -32,18 +35,14 @@ public class Game {
         startMenu = new StartMenu("assets/start.png");
 
 
-        while (!gameStart) {
+        while (!playing) {
             Thread.sleep(100);
         }
 
         startGame();
-
     }
 
-
-    public void startGame() throws InterruptedException {
-
-        startMenu.hide();
+    public void prepare() {
 
         ScoreBoard scoreBoard = new ScoreBoard(70, 850);
 
@@ -56,11 +55,17 @@ public class Game {
 
         }
 
+    }
+
+    public void startGame() throws InterruptedException {
+
+        startMenu.hide();
+        prepare();
+
         CheckCollision checkCollision = new CheckCollision(latino, trump.getPaper(), money, trump);
 
-
         k.start();
-        while (!gameOver) {
+        while (playing) {
 
             trump.move();
             Thread.sleep(30);
@@ -74,17 +79,37 @@ public class Game {
 
         }
 
+        resetElements();
+        initGame();
+
+    }
+
+    public void resetElements() {
+
+        trump = null;
+        gameGrid = null;
+
+        clear(latino);
+        clear(money);
+
+    }
+
+    private void clear(GameObject[] objects) {
+        for (int i = 0; i < objects.length; i++) {
+            objects[i].getPicture().delete();
+            objects[i] = null;
+        }
     }
 
     public void latinMove() {
 
         for (Latino l : latino) {
-            if (l.getMove()) {
+            if (l.canMove()) {
                 l.move();
             }
             int move = (int) Math.floor(Math.random() * 200);
             if (move == 1) {
-                l.setMove(true);
+                l.start();
             }
         }
     }
@@ -93,23 +118,25 @@ public class Game {
     public void moneyMove() {
 
         for (Money m : money) {
-            if (m.getMove()) {
+            if (m.canMove()) {
                 m.move();
             }
             int move = (int) Math.floor(Math.random() * 600);
             if (move == 1) {
-                m.setMove(true);
+                m.start();
             }
         }
 
     }
 
-    public void setGameStart(boolean start) {
-        gameStart = start;
+    public void start() {
+        playing = true;
     }
 
-    public void setGameOver(boolean gameOver) {
-        this.gameOver = gameOver;
+    public void stop() {
+        playing = false;
     }
+
+
 }
 

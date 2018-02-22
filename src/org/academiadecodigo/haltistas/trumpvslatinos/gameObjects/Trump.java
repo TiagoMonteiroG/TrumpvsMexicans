@@ -1,5 +1,6 @@
 package org.academiadecodigo.haltistas.trumpvslatinos.gameObjects;
 
+import org.academiadecodigo.haltistas.trumpvslatinos.gameBasics.GameGrid;
 import org.academiadecodigo.simplegraphics.graphics.Movable;
 
 public class Trump extends GameObject implements Movable {
@@ -39,19 +40,24 @@ public class Trump extends GameObject implements Movable {
 
     public Paper shoot() {
 
-        if (shooting) {
+        if (!shooting) {
+            return null;
+        }
 
-            int paperWidth = 20;
-            shooting = false;
-            for (int i = 0; i < paper.length; i++) {
-                if (paper[i] == null) {
-                    return paper[i] = new Paper(getX() + getWidth() - paperWidth, 700, "assets/paper.png");
-                }
+        Paper toReturn = null;
 
+        int paperWidth = 20;
+        shooting = false;
+        for (int i = 0; i < paper.length; i++) {
+            if (paper[i] == null) {
+                paper[i] = new Paper(getX() + getWidth() - paperWidth, 700, "assets/paper.png");
+                toReturn = paper[i];
+                break;
             }
 
         }
-        return null;
+
+        return toReturn;
     }
 
     @Override
@@ -94,16 +100,15 @@ public class Trump extends GameObject implements Movable {
 
             if (paper[i] == null) {
                 paper[i] = shoot();
+                continue;
             }
-            if (paper[i] != null) {
-                paper[i].move();
+            paper[i].move();
 
-                if (paper[i].getY() == 10) {
-                    paper[i] = null;
-                    setPaper(i);
-                }
-
+            if (paper[i].getY() == GameGrid.PADDING) {
+                paper[i] = null;
+                setPaper(i);
             }
+
         }
 
     }

@@ -10,71 +10,68 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
 public class KeyHandler implements KeyboardHandler {
 
-        private KeyboardEvent right;
-        private KeyboardEvent left;
-        private KeyboardEvent rightRelease;
-        private KeyboardEvent leftReRelease;
-        private KeyboardEvent start;
-        private KeyboardEvent space;
-        private KeyboardEvent spaceRelease;
-        private Keyboard k;
-        private Trump trump;
-        private Game game;
+    private KeyboardEvent right;
+    private KeyboardEvent left;
+    private KeyboardEvent start;
+    private KeyboardEvent space;
+    private Keyboard k;
+    private Trump trump;
+    private Game game;
 
-        public KeyHandler (Trump trump,Game game) {
-            this.trump = trump;
-            this.game = game;
+    public KeyHandler(Trump trump, Game game) {
+        this.trump = trump;
+        this.game = game;
 
-        }
+    }
 
-        public void init () {
-            k = new Keyboard(this);
+    public void init() {
+        k = new Keyboard(this);
 
-            start = new KeyboardEvent();
-            start.setKey(KeyboardEvent.KEY_S);
-            start.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-            k.addEventListener(start);
+        start = new KeyboardEvent();
+        start.setKey(KeyboardEvent.KEY_S);
+        start.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        k.addEventListener(start);
 
-        }
+    }
 
 
-        public void start () {
-            k = new Keyboard(this);
+    public void start() {
+        k = new Keyboard(this);
 
-            right = new KeyboardEvent();
-            right.setKey(KeyboardEvent.KEY_RIGHT);
-            right.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-            k.addEventListener(right);
+        right = new KeyboardEvent();
+        right.setKey(KeyboardEvent.KEY_RIGHT);
+        right.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        k.addEventListener(right);
 
-            rightRelease = new KeyboardEvent();
-            rightRelease.setKey(KeyboardEvent.KEY_RIGHT);
-            rightRelease.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
-            k.addEventListener(rightRelease);
+        KeyboardEvent rightRelease = new KeyboardEvent();
+        rightRelease.setKey(KeyboardEvent.KEY_RIGHT);
+        rightRelease.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
+        k.addEventListener(rightRelease);
 
-            left = new KeyboardEvent();
-            left.setKey(KeyboardEvent.KEY_LEFT);
-            left.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-            k.addEventListener(left);
+        left = new KeyboardEvent();
+        left.setKey(KeyboardEvent.KEY_LEFT);
+        left.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        k.addEventListener(left);
 
-            leftReRelease = new KeyboardEvent();
-            leftReRelease.setKey(KeyboardEvent.KEY_LEFT);
-            leftReRelease.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
-            k.addEventListener(leftReRelease);
+        KeyboardEvent leftReRelease = new KeyboardEvent();
+        leftReRelease.setKey(KeyboardEvent.KEY_LEFT);
+        leftReRelease.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
+        k.addEventListener(leftReRelease);
 
-            space = new KeyboardEvent();
-            space.setKey(KeyboardEvent.KEY_SPACE);
-            space.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-            k.addEventListener(space);
+        space = new KeyboardEvent();
+        space.setKey(KeyboardEvent.KEY_SPACE);
+        space.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        k.addEventListener(space);
 
-            spaceRelease = new KeyboardEvent();
-            spaceRelease.setKey(KeyboardEvent.KEY_SPACE);
-            spaceRelease.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
-            k.addEventListener(spaceRelease);
-        }
+        KeyboardEvent spaceRelease = new KeyboardEvent();
+        spaceRelease.setKey(KeyboardEvent.KEY_SPACE);
+        spaceRelease.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
+        k.addEventListener(spaceRelease);
+    }
 
 
     @Override
-    public void keyPressed(KeyboardEvent keyboardEvent)  {
+    public void keyPressed(KeyboardEvent keyboardEvent) {
 
         if (keyboardEvent.equals(right)) {
             trump.setDirection(Direction.RIGHT);
@@ -89,7 +86,7 @@ public class KeyHandler implements KeyboardHandler {
         }
 
         if (keyboardEvent.equals(start)) {
-            game.setGameStart(true);
+            game.start();
             return;
         }
 

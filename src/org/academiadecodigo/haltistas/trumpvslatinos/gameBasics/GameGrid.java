@@ -4,15 +4,19 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class GameGrid {
 
-    private static final int PADDING = 10;
+    public static final int PADDING = 10;
+    private Picture picture;
+
 
     public GameGrid(String source) {
 
-        int x = PADDING;
-        int y = PADDING;
-        Picture picture = new Picture(x, y, source);
+        picture = new Picture(PADDING, PADDING, source);
         picture.draw();
 
+    }
+
+    public Picture getPicture(){
+        return picture;
     }
 
 }

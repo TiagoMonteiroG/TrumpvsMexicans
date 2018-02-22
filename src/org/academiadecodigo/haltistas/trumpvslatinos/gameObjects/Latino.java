@@ -13,13 +13,13 @@ public class Latino extends Item {
 
     public void move() {
 
-        if (getMove() && getY() < 810) {
+        if (canMove() && getY() < 810) {
             translate(0, 4);
 
         }
 
         if (getY() >= 810) {
-            game.setGameOver(true);
+            game.stop();
 
         }
 
@@ -28,7 +28,7 @@ public class Latino extends Item {
             setMove(false);
             getPicture().translate(0, -910);
             getPicture().draw();
-            setColide(false);
+            setCollide(false);
         }
 
     }

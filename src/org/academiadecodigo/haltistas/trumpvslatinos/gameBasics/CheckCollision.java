@@ -33,8 +33,8 @@ public class CheckCollision {
                                     p.getY() < l.getY1())) {
 
 
-                        l.setColide(true);
-                        p.setColide(true);
+                        l.setCollide(true);
+                        p.setCollide(true);
                     }
                 }
             }
@@ -49,7 +49,7 @@ public class CheckCollision {
 
             if (m.getXBottom() >= trump.getY() && (m.getX() > trump.getX() &&
                     trump.getX1() > m.getX())) {
-                m.setColide(true);
+                m.setCollide(true);
 
             }
         }
