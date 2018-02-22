@@ -20,27 +20,30 @@ public class Game {
     private StartMenu startMenu;
     private KeyHandler k;
     private boolean gameOver;
+    private boolean gameStart = false;
 
     public Game() {
         this.money = new Money[20];
         this.latino = new Latino[5];
     }
 
-    /* public void initGame() {
+    /*public void initGame() throws InterruptedException {
+        k = new KeyHandler(trump);
+        k.init();
 
          startMenu = new StartMenu("assets/start.png");
 
-         k = new KeyHandler(trump);
 
-         k.init();
+        if (gameStart) {
+            startGame();
+            return;
+        }
 
      }*/
 
 
     public void startGame() throws InterruptedException {
 
-
-        // k.start();
 
         GameGrid gameGrid = new GameGrid("assets/back.png");
 
@@ -59,30 +62,28 @@ public class Game {
         CheckCollision checkCollision = new CheckCollision (latino, trump.getPaper(), money, trump );
 
 
-
-
-
-
         scoreBoard = new ScoreBoard(70, 850);
 
 
         k.start();
         while (!gameOver) {
+
             trump.move();
             Thread.sleep(30);
             trump.paperShoot();
+
             checkCollision.latinoCollision();
             checkCollision.trumpCollision();
 
             moneyMove();
             latinMove();
 
-
         }
 
     }
 
     public void latinMove(){
+
         for (Latino l : latino) {
             if (l.getMove()) {
                 l.move();
@@ -96,6 +97,7 @@ public class Game {
 
 
     public void moneyMove(){
+
         for (Money m : money) {
             if (m.getMove()) {
                 m.move();
@@ -106,6 +108,10 @@ public class Game {
             }
         }
 
+    }
+
+    public void setGameStart (boolean start) {
+        gameStart = start;
     }
 
 }

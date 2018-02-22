@@ -8,10 +8,7 @@ public class Paper extends Item {
         super(x, y, source);
     }
 
-
-
     public void move() {
-
 
             if (getY() > 10) {
                 translate(0, -10);
@@ -20,17 +17,13 @@ public class Paper extends Item {
             if (getY() == 10) {
                 getPicture().delete();
             }
-
     }
 
     @Override
     public void translate (double dx, double dy) {
 
-
         getPicture().translate(dx, dy);
         setY(getY()+ (int) dy);
-        System.out.println(getY());
-
 
     }
 

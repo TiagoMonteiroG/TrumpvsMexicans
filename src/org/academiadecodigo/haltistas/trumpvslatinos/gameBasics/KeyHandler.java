@@ -1,5 +1,6 @@
 package org.academiadecodigo.haltistas.trumpvslatinos.gameBasics;
 
+import org.academiadecodigo.haltistas.trumpvslatinos.Game;
 import org.academiadecodigo.haltistas.trumpvslatinos.gameObjects.Direction;
 import org.academiadecodigo.haltistas.trumpvslatinos.gameObjects.Trump;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
@@ -18,10 +19,11 @@ public class KeyHandler implements KeyboardHandler {
         private KeyboardEvent spaceRelease;
         private Keyboard k;
         private Trump trump;
-       // private Game game;
+        //private Game game;
 
         public KeyHandler (Trump trump) {
             this.trump = trump;
+            //this.game = new Game();
 
         }
 
@@ -75,25 +77,22 @@ public class KeyHandler implements KeyboardHandler {
     public void keyPressed(KeyboardEvent keyboardEvent)  {
 
         if (keyboardEvent.equals(right)) {
-            System.out.println("press right");
             trump.setDirection(Direction.RIGHT);
-            System.out.println(trump.getDirection());
             return;
         }
 
 
         if (keyboardEvent.equals(left)) {
-            System.out.println("press left");
             trump.setDirection(Direction.LEFT);
-            System.out.println(trump.getDirection());
             return;
 
         }
 
-        if (keyboardEvent.equals(start)) {
-            start();
+        /*if (keyboardEvent.equals(start)) {
+            System.out.println("esta");
+            game.setGameStart(true);
             return;
-        }
+        }*/
 
         if (keyboardEvent.equals(space)) {
             trump.setShooting(true);
@@ -104,16 +103,5 @@ public class KeyHandler implements KeyboardHandler {
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
 
-           // if(keyboardEvent.equals(spaceRelease)){
-             //   trump.setShooting(false);
-           // }
-
-/*
-        if(keyboardEvent.equals(rightRelease)){
-            trump.setDirection(Direction.STAY);
-        }
-        if(keyboardEvent.equals(leftReRelease)){
-            trump.setDirection(Direction.STAY);
-        }*/
     }
 }

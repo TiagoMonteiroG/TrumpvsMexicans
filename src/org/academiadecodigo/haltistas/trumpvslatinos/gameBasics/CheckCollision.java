@@ -56,28 +56,6 @@ public class CheckCollision {
 
            }
 
-
-
-            /*if (((money[i].getX() < trump.getX() &&
-                    trump.getX() < money[i].getX1()) ||
-
-                    (money[i].getX() < trump.getX1() &&
-                            trump.getX1() < money[i].getX1())) &&
-
-                    ((money[i].getXBottom() < trump.getX() &&
-                            trump.getX1() < money[i].getXBottom()) ||
-
-            (money[i].getX1() < trump.getXBottom() &&
-                    trump.getXBottom() > money[i].getX()))){*/
-
-
-
-
-
-
-
-
-
         }
 
 

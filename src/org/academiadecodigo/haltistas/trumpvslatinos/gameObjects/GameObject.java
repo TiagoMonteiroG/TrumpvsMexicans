@@ -65,14 +65,14 @@ public abstract class GameObject  {
 
 
     public void setColide (boolean colision ){
+
         colide = colision;
-        System.out.println(colide);
     }
 
     public boolean colide (){
+
         return colide;
     }
-
 
 
 }

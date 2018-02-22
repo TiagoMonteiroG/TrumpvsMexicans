@@ -1,6 +1,8 @@
 package org.academiadecodigo.haltistas.trumpvslatinos.gameObjects;
 
-public class Trump extends GameObject implements Shooter {
+import org.academiadecodigo.simplegraphics.graphics.Movable;
+
+public class Trump extends GameObject implements Movable {
 
     private Direction direction;
     private boolean shooting;
@@ -18,6 +20,7 @@ public class Trump extends GameObject implements Shooter {
     }
 
     public void move() {
+
         if (direction.equals(Direction.RIGHT)) {
             translate(10, 0);
             direction = Direction.STAY;

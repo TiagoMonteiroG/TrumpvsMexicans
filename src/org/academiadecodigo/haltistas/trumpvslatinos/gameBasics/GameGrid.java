@@ -1,9 +1,8 @@
 package org.academiadecodigo.haltistas.trumpvslatinos.gameBasics;
 
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-public class GameGrid implements Colidable {
+public class GameGrid {
 
     public static final int PADDING = 10;
     private int x;
@@ -20,7 +19,6 @@ public class GameGrid implements Colidable {
         picture.draw();
 
     }
-
 
     public int getHeight() {
         return picture.getHeight() + PADDING;

@@ -1,6 +1,5 @@
 package org.academiadecodigo.haltistas.trumpvslatinos.gameObjects;
 
-import org.academiadecodigo.haltistas.trumpvslatinos.gameBasics.Colidable;
 import org.academiadecodigo.simplegraphics.graphics.Movable;
 
 public abstract class Item extends GameObject implements Movable {
@@ -18,7 +17,6 @@ public abstract class Item extends GameObject implements Movable {
 
         setY(currentY + (int) dy);
         getPicture().translate(dx, dy);
-        System.out.println(getY());
 
     }
 

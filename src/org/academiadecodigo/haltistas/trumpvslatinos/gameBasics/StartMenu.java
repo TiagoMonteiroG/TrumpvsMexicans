@@ -11,6 +11,7 @@ public class StartMenu {
     private Picture picture;
 
     public StartMenu(String source) {
+
         this.x = PADDING;
         this.y = PADDING;
         Picture picture = new Picture(x, y, source);

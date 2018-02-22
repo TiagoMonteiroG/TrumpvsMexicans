@@ -34,8 +34,6 @@ public class Money extends Item {
         }
     }
 
-
-
     @Override
     public void translate(double dx, double dy) {
 

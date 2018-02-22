@@ -3,7 +3,7 @@ package org.academiadecodigo.haltistas.trumpvslatinos.gameBasics;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Text;
 
-public class ScoreBoard implements Drawable {
+public class ScoreBoard {
 
     private int x;
     private int y;
