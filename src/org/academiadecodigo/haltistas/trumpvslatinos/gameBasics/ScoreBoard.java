@@ -23,6 +23,9 @@ public class ScoreBoard {
 
     public void reduceScore(int points){
         score -= points;
+        if (score < 0){
+            score = 0;
+        }
         this.text.setText("Score : " + score);
     }
 }
