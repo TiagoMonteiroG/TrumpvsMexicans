@@ -10,21 +10,18 @@ public class Paper extends Item {
 
 
 
-    public void move(){
+    public void move() {
 
-        System.out.println("moving the paper");
-        System.out.println("Y: " + getY());
-        if (getY() > 10) {
-            System.out.println(getY());
-            translate(0, -10);
 
-            //System.out.println(getMove());
-        }
-        if (getY() == 10) {
-            getPicture().delete();
-        }
+            if (getY() > 10) {
+                translate(0, -10);
+
+            }
+            if (getY() == 10) {
+                getPicture().delete();
+            }
+
     }
-
 
     @Override
     public void translate (double dx, double dy) {
@@ -33,15 +30,6 @@ public class Paper extends Item {
         getPicture().translate(dx, dy);
         setY(getY()+ (int) dy);
         System.out.println(getY());
-
-
-
-         /*   if (getY() > 10) {
-
-                getPicture().translate(dx, dy);
-                setY(getY()+ (int) dy);
-                System.out.println(getY());
-            }*/
 
 
     }

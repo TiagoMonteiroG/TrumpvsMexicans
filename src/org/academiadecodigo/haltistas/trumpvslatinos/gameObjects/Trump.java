@@ -13,18 +13,20 @@ public class Trump extends GameObject implements Shooter {
         this.paper = new Paper[10];
     }
 
+    public Paper[] getPaper() {
+        return paper;
+    }
+
     public void move() {
         if (direction.equals(Direction.RIGHT)) {
             translate(10, 0);
             direction = Direction.STAY;
-            System.out.println("trump m right");
             return;
         }
 
         if (direction.equals(Direction.LEFT)) {
             translate(-10, 0);
             direction = Direction.STAY;
-            System.out.println("trump m left");
             return;
         }
 
@@ -36,7 +38,7 @@ public class Trump extends GameObject implements Shooter {
     public Paper shoot() {
 
         if (shooting) {
-            System.out.println("is shooting");
+
             int paperWidth = 20;
             shooting = false;
             for (int i = 0; i < paper.length; i++) {
@@ -97,8 +99,8 @@ public class Trump extends GameObject implements Shooter {
         for (int i = 0; i < paper.length; i++) {
 
             if (paper[i] != null) {
-                System.out.println("paper must be moving");
-                paper[i].move(); //adicionar à lista
+
+                paper[i].move();
                 if (paper[i].getY() == 10) {
                     paper[i] = null;
                     setPaper(i);
@@ -108,5 +110,6 @@ public class Trump extends GameObject implements Shooter {
         }
 
     }
+
 }
 

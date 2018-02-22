@@ -5,7 +5,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public abstract class GameObject  {
 
-    private boolean colide;
+    private boolean colide = false;
     private int x;
     private int y;
     private Picture picture;
@@ -16,6 +16,23 @@ public abstract class GameObject  {
         this.picture = new Picture(x,y,source);
         picture.draw();
 
+    }
+
+
+    public int getX1(){
+        return x + picture.getWidth();
+    }
+
+    public int getY1(){
+        return  y + picture.getHeight();
+    }
+
+    public int getXBottom(){
+        return y + picture.getHeight();
+    }
+
+    public int getY1Bottom(){
+        return y + picture.getWidth() + picture.getHeight();
     }
 
     public int getX () {
@@ -45,6 +62,17 @@ public abstract class GameObject  {
     public Picture getPicture() {
         return picture;
     }
+
+
+    public void setColide (boolean colision ){
+        colide = colision;
+        System.out.println(colide);
+    }
+
+    public boolean colide (){
+        return colide;
+    }
+
 
 
 }

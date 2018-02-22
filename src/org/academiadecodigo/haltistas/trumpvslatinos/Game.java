@@ -1,9 +1,6 @@
 package org.academiadecodigo.haltistas.trumpvslatinos;
 
-import org.academiadecodigo.haltistas.trumpvslatinos.gameBasics.GameGrid;
-import org.academiadecodigo.haltistas.trumpvslatinos.gameBasics.KeyHandler;
-import org.academiadecodigo.haltistas.trumpvslatinos.gameBasics.ScoreBoard;
-import org.academiadecodigo.haltistas.trumpvslatinos.gameBasics.StartMenu;
+import org.academiadecodigo.haltistas.trumpvslatinos.gameBasics.*;
 import org.academiadecodigo.haltistas.trumpvslatinos.gameObjects.Latino;
 import org.academiadecodigo.haltistas.trumpvslatinos.gameObjects.Money;
 import org.academiadecodigo.haltistas.trumpvslatinos.gameObjects.Paper;
@@ -25,8 +22,8 @@ public class Game {
     private boolean gameOver;
 
     public Game() {
-        this.money = new Money[12];
-        this.latino = new Latino[30];
+        this.money = new Money[20];
+        this.latino = new Latino[5];
     }
 
     /* public void initGame() {
@@ -51,15 +48,19 @@ public class Game {
         k = new KeyHandler(trump);
 
         for (int i = 0; i < latino.length; i++) {
-            latino[i] = new Latino((int) Math.floor((Math.random() * 525 + 10)), -100, "assets/latino.png");
+            latino[i] = new Latino((int) Math.floor((Math.random() * 525 + 20)), -100, "assets/latino.png");
         }
 
         for (int i = 0; i < money.length; i++) {
             money[i] = new Money((int) Math.floor((Math.random() * 580 + 10)), -100, "assets/money.png");
+
         }
 
+        CheckCollision checkCollision = new CheckCollision (latino, trump.getPaper(), money, trump );
 
-        //money = new Money(100, 10, "assets/money.png");
+
+
+
 
 
         scoreBoard = new ScoreBoard(70, 850);
@@ -70,8 +71,12 @@ public class Game {
             trump.move();
             Thread.sleep(30);
             trump.paperShoot();
+            checkCollision.latinoCollision();
+            checkCollision.trumpCollision();
+
             moneyMove();
             latinMove();
+
 
         }
 
@@ -82,7 +87,7 @@ public class Game {
             if (l.getMove()) {
                 l.move();
             }
-            int move = (int) Math.floor(Math.random() * 700);
+            int move = (int) Math.floor(Math.random() * 50);
             if (move == 1) {
                 l.setMove(true);
             }
@@ -95,7 +100,7 @@ public class Game {
             if (m.getMove()) {
                 m.move();
             }
-            int move = (int) Math.floor(Math.random() * 700);
+            int move = (int) Math.floor(Math.random() * 50);
             if (move == 1) {
                 m.setMove(true);
             }
