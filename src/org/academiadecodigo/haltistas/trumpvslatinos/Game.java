@@ -13,7 +13,6 @@ public class Game {
     private Latino[] latino;
     private StartMenu startMenu;
     private KeyHandler k;
-
     private boolean playing;
     private GameGrid gameGrid;
 
@@ -86,11 +85,10 @@ public class Game {
 
     public void resetElements() {
 
-        trump = null;
-        gameGrid = null;
-
         clear(latino);
         clear(money);
+        clearTrump(trump);
+        clearGrid(gameGrid);
 
     }
 
@@ -99,6 +97,14 @@ public class Game {
             objects[i].getPicture().delete();
             objects[i] = null;
         }
+    }
+
+    private void clearTrump(GameObject object) {
+        object.getPicture().delete();
+    }
+
+    private void clearGrid(GameGrid gameGrid) {
+        gameGrid.getPicture().delete();
     }
 
     public void latinMove() {
@@ -113,7 +119,6 @@ public class Game {
             }
         }
     }
-
 
     public void moneyMove() {
 
@@ -136,7 +141,6 @@ public class Game {
     public void stop() {
         playing = false;
     }
-
-
+    
 }
 

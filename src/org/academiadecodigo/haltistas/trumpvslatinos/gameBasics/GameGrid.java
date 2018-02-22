@@ -7,7 +7,6 @@ public class GameGrid {
     public static final int PADDING = 10;
     private Picture picture;
 
-
     public GameGrid(String source) {
 
         picture = new Picture(PADDING, PADDING, source);
@@ -15,7 +14,7 @@ public class GameGrid {
 
     }
 
-    public Picture getPicture(){
+    public Picture getPicture() {
         return picture;
     }
 

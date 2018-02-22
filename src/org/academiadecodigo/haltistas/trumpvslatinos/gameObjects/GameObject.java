@@ -2,7 +2,6 @@ package org.academiadecodigo.haltistas.trumpvslatinos.gameObjects;
 
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-
 public abstract class GameObject  {
 
     private boolean collide = false;
@@ -18,7 +17,6 @@ public abstract class GameObject  {
 
     }
 
-
     public int getX1(){
         return x + picture.getWidth();
     }
@@ -29,10 +27,6 @@ public abstract class GameObject  {
 
     public int getXBottom(){
         return y + picture.getHeight();
-    }
-
-    public int getY1Bottom(){
-        return y + picture.getWidth() + picture.getHeight();
     }
 
     public int getX () {
@@ -55,14 +49,9 @@ public abstract class GameObject  {
         return picture.getWidth();
     }
 
-    public int getHeight(){
-        return picture.getHeight();
-    }
-
     public Picture getPicture() {
         return picture;
     }
-
 
     public void setCollide(boolean colision ){
 
@@ -73,6 +62,5 @@ public abstract class GameObject  {
 
         return collide;
     }
-
 
 }

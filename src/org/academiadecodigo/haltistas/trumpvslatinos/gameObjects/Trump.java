@@ -56,7 +56,6 @@ public class Trump extends GameObject implements Movable {
             }
 
         }
-
         return toReturn;
     }
 
@@ -82,10 +81,6 @@ public class Trump extends GameObject implements Movable {
         this.direction = direction;
     }
 
-
-    public Direction getDirection() {
-        return direction;
-    }
 
     public void setShooting(boolean bool) {
         this.shooting = bool;

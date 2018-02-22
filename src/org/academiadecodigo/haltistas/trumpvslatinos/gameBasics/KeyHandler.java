@@ -34,7 +34,6 @@ public class KeyHandler implements KeyboardHandler {
 
     }
 
-
     public void start() {
         k = new Keyboard(this);
 
