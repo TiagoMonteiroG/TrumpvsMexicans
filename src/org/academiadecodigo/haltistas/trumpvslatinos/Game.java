@@ -7,9 +7,11 @@ import org.academiadecodigo.haltistas.trumpvslatinos.gameObjects.Trump;
 
 public class Game {
 
+    private Trump trump;
     private Money[] money;
     private Latino[] latino;
     private StartMenu startMenu;
+    private KeyHandler k;
     private boolean gameOver;
     private boolean gameStart = false;
 
@@ -18,21 +20,39 @@ public class Game {
         this.latino = new Latino[20];
     }
 
+    public void initGame() throws InterruptedException {
+
+        GameGrid gameGrid = new GameGrid("assets/back.png");
+
+        trump = new Trump(250, 760, "assets/trump.png");
+
+        k = new KeyHandler(trump, this);
+        k.init();
+
+        startMenu = new StartMenu("assets/start.png");
+
+
+        while (!gameStart) {
+            Thread.sleep(100);
+        }
+
+        startGame();
+
+    }
+
 
     public void startGame() throws InterruptedException {
 
-        GameGrid gameGrid = new GameGrid("assets/back.png");
-        ScoreBoard scoreBoard = new ScoreBoard(70,850);
+        startMenu.hide();
 
-        Trump trump = new Trump(250, 760, "assets/trump.png");
-        KeyHandler k = new KeyHandler(trump);
+        ScoreBoard scoreBoard = new ScoreBoard(70, 850);
 
         for (int i = 0; i < latino.length; i++) {
-            latino[i] = new Latino((int) Math.floor((Math.random() * 525 + 20)), -100, "assets/latino.png",this);
+            latino[i] = new Latino((int) Math.floor((Math.random() * 525 + 20)), -100, "assets/latino.png", this);
         }
 
         for (int i = 0; i < money.length; i++) {
-            money[i] = new Money((int) Math.floor((Math.random() * 580 + 10)), -100, "assets/money.png",scoreBoard );
+            money[i] = new Money((int) Math.floor((Math.random() * 580 + 10)), -100, "assets/money.png", scoreBoard);
 
         }
 
@@ -45,8 +65,10 @@ public class Game {
             trump.move();
             Thread.sleep(30);
             trump.paperShoot();
+
             latinMove();
             moneyMove();
+
             checkCollision.latinoCollision();
             checkCollision.trumpCollision();
 
@@ -54,8 +76,7 @@ public class Game {
 
     }
 
-
-   public void latinMove() {
+    public void latinMove() {
 
         for (Latino l : latino) {
             if (l.getMove()) {
@@ -81,6 +102,10 @@ public class Game {
             }
         }
 
+    }
+
+    public void setGameStart(boolean start) {
+        gameStart = start;
     }
 
     public void setGameOver(boolean gameOver) {

@@ -13,22 +13,23 @@ public class Latino extends Item {
 
     public void move() {
 
-            if (getMove() && getY() < 810) {
-                translate(0, 4);
+        if (getMove() && getY() < 810) {
+            translate(0, 4);
 
-            }
+        }
 
-            if (getY() >= 810) {
-                game.setGameOver(true);
+        if (getY() >= 810) {
+            game.setGameOver(true);
 
-            }
+        }
 
-            if(colide()){
-                getPicture().delete();
-                setMove(false);
-                getPicture().translate(0, -910);
-                getPicture().draw();
-            setColide(false);}
+        if (colide()) {
+            getPicture().delete();
+            setMove(false);
+            getPicture().translate(0, -910);
+            getPicture().draw();
+            setColide(false);
+        }
 
     }
 

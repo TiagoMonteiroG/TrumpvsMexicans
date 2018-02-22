@@ -8,22 +8,22 @@ public class ScoreBoard {
     private int score;
     private Text text;
 
-    public ScoreBoard (int x, int y) {
+    public ScoreBoard(int x, int y) {
 
-        this.text = new Text (x, y, "Score : "  + score );
+        this.text = new Text(x, y, "Score : " + score);
         text.setColor(Color.DARK_GRAY);
         text.draw();
-        text.grow(40,40);
+        text.grow(40, 40);
     }
 
     public void incrementScore(int points) {
-        score += points ;
+        score += points;
         this.text.setText("Score : " + score);
     }
 
-    public void reduceScore(int points){
+    public void reduceScore(int points) {
         score -= points;
-        if (score < 0){
+        if (score < 0) {
             score = 0;
         }
         this.text.setText("Score : " + score);

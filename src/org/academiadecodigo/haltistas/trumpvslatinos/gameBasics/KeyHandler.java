@@ -19,11 +19,11 @@ public class KeyHandler implements KeyboardHandler {
         private KeyboardEvent spaceRelease;
         private Keyboard k;
         private Trump trump;
-        //private Game game;
+        private Game game;
 
-        public KeyHandler (Trump trump) {
+        public KeyHandler (Trump trump,Game game) {
             this.trump = trump;
-            //this.game = new Game();
+            this.game = game;
 
         }
 
@@ -88,17 +88,15 @@ public class KeyHandler implements KeyboardHandler {
 
         }
 
-        /*if (keyboardEvent.equals(start)) {
-            System.out.println("esta");
+        if (keyboardEvent.equals(start)) {
             game.setGameStart(true);
             return;
-        }*/
+        }
 
         if (keyboardEvent.equals(space)) {
             trump.setShooting(true);
         }
     }
-
 
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {

@@ -6,7 +6,6 @@ public class GameGrid {
 
     private static final int PADDING = 10;
 
-
     public GameGrid(String source) {
 
         int x = PADDING;
@@ -15,6 +14,5 @@ public class GameGrid {
         picture.draw();
 
     }
-
 
 }
