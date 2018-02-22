@@ -35,7 +35,7 @@ public class Game {
         k = new KeyHandler(trump);
 
         for (int i = 0; i < latino.length; i++) {
-            latino[i] = new Latino((int) Math.floor((Math.random() * 525 + 20)), -100, "assets/latino.png");
+            latino[i] = new Latino((int) Math.floor((Math.random() * 525 + 20)), -100, "assets/latino.png",this);
         }
 
         for (int i = 0; i < money.length; i++) {
@@ -88,6 +88,10 @@ public class Game {
             }
         }
 
+    }
+
+    public void setGameOver(boolean gameOver) {
+        this.gameOver = gameOver;
     }
 }
 

@@ -1,9 +1,14 @@
 package org.academiadecodigo.haltistas.trumpvslatinos.gameObjects;
 
+import org.academiadecodigo.haltistas.trumpvslatinos.Game;
+
 public class Latino extends Item {
 
-    public Latino(int x, int y, String source) {
+    private Game game;
+
+    public Latino(int x, int y, String source, Game game) {
         super(x, y, source);
+        this.game = game;
     }
 
     public void move() {
@@ -14,11 +19,7 @@ public class Latino extends Item {
             }
 
             if (getY() >= 810) {
-
-                getPicture().delete();
-                setMove(false);
-                getPicture().translate(0, -910);
-                getPicture().draw();
+                game.setGameOver(true);
 
             }
 
