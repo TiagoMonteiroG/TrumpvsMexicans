@@ -12,7 +12,7 @@ public class Trump extends GameObject implements Movable {
 
     public Trump(int x, int y, String source) {
         super(x, y, source);
-        this.direction = Direction.STAY;
+        this.direction = Direction.NULL;
         this.paper = new Paper[5];
     }
 
@@ -24,13 +24,13 @@ public class Trump extends GameObject implements Movable {
 
         if (direction.equals(Direction.RIGHT)) {
             translate(20, 0);
-            direction = Direction.STAY;
+            direction = Direction.NULL;
             return;
         }
 
         if (direction.equals(Direction.LEFT)) {
             translate(-20, 0);
-            direction = Direction.STAY;
+            direction = Direction.NULL;
             return;
         }
 

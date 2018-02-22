@@ -53,12 +53,12 @@ public abstract class GameObject  {
         return picture;
     }
 
-    public void setCollide(boolean colision ){
+    public void setCollide(boolean collision ){
 
-        collide = colision;
+        collide = collision;
     }
 
-    public boolean colide (){
+    public boolean collide(){
 
         return collide;
     }

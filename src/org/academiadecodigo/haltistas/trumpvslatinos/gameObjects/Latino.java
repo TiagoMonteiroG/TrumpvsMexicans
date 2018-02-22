@@ -23,7 +23,7 @@ public class Latino extends Item {
 
         }
 
-        if (colide()) {
+        if (collide()) {
             getPicture().delete();
             setMove(false);
             getPicture().translate(0, -910);

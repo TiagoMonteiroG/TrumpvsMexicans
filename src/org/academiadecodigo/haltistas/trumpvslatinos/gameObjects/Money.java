@@ -29,7 +29,7 @@ public class Money extends Item {
 
         }
 
-        if (colide()) {
+        if (collide()) {
 
             scoreBoard.incrementScore(100);
             getPicture().delete();
