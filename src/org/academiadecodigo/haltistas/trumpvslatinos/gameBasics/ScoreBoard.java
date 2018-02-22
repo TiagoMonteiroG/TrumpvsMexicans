@@ -5,25 +5,29 @@ import org.academiadecodigo.simplegraphics.graphics.Text;
 
 public class ScoreBoard {
 
-    private int x;
-    private int y;
-    private int score = 0;
+    private int score;
     private Text text;
 
     public ScoreBoard (int x, int y) {
-        this.x = x;
-        this.y = y;
-        this.text = new Text (x, y, "Score : " + score);
+
+        this.text = new Text (x, y, "Score : "  + score );
         text.setColor(Color.DARK_GRAY);
         text.draw();
         text.grow(40,40);
     }
 
-    public void increaseScore(int points) {
-        score = points ;
+    public void setScore(int points) {
+        score += points ;
+
     }
 
-    public void setScore(int score) {
-        this.score = score;
+    public void setText(int score) {
+        this.text.setText("Score : " + score);
     }
+
+    public int getScore(){
+        return score;
+    }
+
+
 }

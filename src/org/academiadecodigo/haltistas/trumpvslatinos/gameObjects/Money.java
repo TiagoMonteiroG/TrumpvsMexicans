@@ -1,12 +1,17 @@
 package org.academiadecodigo.haltistas.trumpvslatinos.gameObjects;
 
+import org.academiadecodigo.haltistas.trumpvslatinos.gameBasics.ScoreBoard;
+
 public class Money extends Item {
+
+    private ScoreBoard scoreBoard;
+
     public Money(int x, int y, String source) {
         super(x, y, source);
+        this.scoreBoard = new ScoreBoard(70, 850);
     }
 
     public void move() {
-
 
         if (getMove() && getY() < 860) {
             translate(0, 4);
@@ -23,6 +28,7 @@ public class Money extends Item {
         }
 
         if (colide()) {
+            scoreBoard.setScore(100);
             getPicture().delete();
             setMove(false);
             getPicture().translate(0, -960);
@@ -30,6 +36,7 @@ public class Money extends Item {
             setColide(false);
 
         }
+        scoreBoard.setText(scoreBoard.getScore());
     }
 
     @Override

@@ -8,6 +8,7 @@ public class CheckCollision {
     private GameObject[] money;
     private GameObject trump;
 
+
     public CheckCollision(GameObject[] latino, GameObject[] paper, GameObject[] money, GameObject trump) {
         this.latino = latino;
         this.paper = paper;
@@ -44,14 +45,14 @@ public class CheckCollision {
 
     public void trumpCollision() {
 
-
         for (GameObject m : money) {
 
             if (m.getXBottom() >= trump.getY() && (m.getX() > trump.getX() &&
                     trump.getX1() > m.getX())) {
                 m.setColide(true);
-            }
 
+            }
         }
+
     }
 }

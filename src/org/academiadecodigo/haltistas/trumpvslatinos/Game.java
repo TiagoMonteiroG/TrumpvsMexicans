@@ -12,8 +12,7 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
 public class Game {
 
-    private GameGrid gameGrid;
-    private Trump trump;
+
     private Money[] money;
     private Latino[] latino;
     private ScoreBoard scoreBoard;
@@ -33,7 +32,7 @@ public class Game {
 
         GameGrid gameGrid = new GameGrid("assets/back.png");
 
-        trump = new Trump(250, 760, "assets/trump.png");
+        Trump trump = new Trump(250, 760, "assets/trump.png");
         k = new KeyHandler(trump);
 
         for (int i = 0; i < latino.length; i++) {
@@ -46,9 +45,6 @@ public class Game {
         }
 
         CheckCollision checkCollision = new CheckCollision(latino, trump.getPaper(), money, trump);
-
-
-        scoreBoard = new ScoreBoard(70, 850);
 
 
         k.start();
