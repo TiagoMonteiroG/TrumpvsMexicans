@@ -3,26 +3,19 @@ package org.academiadecodigo.haltistas.trumpvslatinos;
 import org.academiadecodigo.haltistas.trumpvslatinos.gameBasics.*;
 import org.academiadecodigo.haltistas.trumpvslatinos.gameObjects.Latino;
 import org.academiadecodigo.haltistas.trumpvslatinos.gameObjects.Money;
-import org.academiadecodigo.haltistas.trumpvslatinos.gameObjects.Paper;
 import org.academiadecodigo.haltistas.trumpvslatinos.gameObjects.Trump;
-import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
-import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
-import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
-import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
 public class Game {
-
 
     private Money[] money;
     private Latino[] latino;
     private StartMenu startMenu;
-    private KeyHandler k;
     private boolean gameOver;
     private boolean gameStart = false;
 
     public Game() {
         this.money = new Money[10];
-        this.latino = new Latino[20];
+        this.latino = new Latino[25];
     }
 
 
@@ -32,7 +25,7 @@ public class Game {
         ScoreBoard scoreBoard = new ScoreBoard(70,850);
 
         Trump trump = new Trump(250, 760, "assets/trump.png");
-        k = new KeyHandler(trump);
+        KeyHandler k = new KeyHandler(trump);
 
         for (int i = 0; i < latino.length; i++) {
             latino[i] = new Latino((int) Math.floor((Math.random() * 525 + 20)), -100, "assets/latino.png",this);
