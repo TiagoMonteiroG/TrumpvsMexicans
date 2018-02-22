@@ -65,7 +65,7 @@ public class Game {
         sound.play(true);
         k.start();
         while (playing) {
-            
+
             trump.move();
             Thread.sleep(30);
             trump.paperShoot();
