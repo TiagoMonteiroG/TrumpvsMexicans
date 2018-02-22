@@ -23,8 +23,8 @@ public class Game {
     private boolean gameStart = false;
 
     public Game() {
-        this.money = new Money[20];
-        this.latino = new Latino[5];
+        this.money = new Money[10];
+        this.latino = new Latino[20];
     }
 
 
@@ -57,8 +57,8 @@ public class Game {
             trump.move();
             Thread.sleep(30);
             trump.paperShoot();
-            moneyMove();
             latinMove();
+            moneyMove();
             checkCollision.latinoCollision();
             checkCollision.trumpCollision();
 
@@ -67,13 +67,13 @@ public class Game {
     }
 
 
-    public void latinMove() {
+   public void latinMove() {
 
         for (Latino l : latino) {
             if (l.getMove()) {
                 l.move();
             }
-            int move = (int) Math.floor(Math.random() * 50);
+            int move = (int) Math.floor(Math.random() * 200);
             if (move == 1) {
                 l.setMove(true);
             }
@@ -87,7 +87,7 @@ public class Game {
             if (m.getMove()) {
                 m.move();
             }
-            int move = (int) Math.floor(Math.random() * 50);
+            int move = (int) Math.floor(Math.random() * 600);
             if (move == 1) {
                 m.setMove(true);
             }

@@ -1,7 +1,5 @@
 package org.academiadecodigo.haltistas.trumpvslatinos.gameObjects;
 
-import org.academiadecodigo.haltistas.trumpvslatinos.gameBasics.ScoreBoard;
-
 public class Money extends Item {
     public Money(int x, int y, String source) {
         super(x, y, source);

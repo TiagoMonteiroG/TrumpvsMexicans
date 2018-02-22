@@ -1,6 +1,4 @@
 package org.academiadecodigo.haltistas.trumpvslatinos.gameBasics;
-
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class StartMenu {

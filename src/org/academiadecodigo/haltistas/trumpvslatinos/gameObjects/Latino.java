@@ -8,7 +8,6 @@ public class Latino extends Item {
 
     public void move() {
 
-
             if (getMove() && getY() < 810) {
                 translate(0, 4);
 
@@ -30,7 +29,6 @@ public class Latino extends Item {
                 getPicture().draw();
             setColide(false);}
 
-
     }
 
     @Override
@@ -40,6 +38,5 @@ public class Latino extends Item {
         setY(getY() + (int) dy);
 
     }
-
 
 }
