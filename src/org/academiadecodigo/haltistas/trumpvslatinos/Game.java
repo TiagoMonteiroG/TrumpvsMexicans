@@ -77,10 +77,21 @@ public class Game {
             checkCollision.trumpCollision();
 
         }
-
+        
+        restartGame();
         resetElements();
         initGame();
+    }
 
+    public void restartGame() throws InterruptedException {
+        gameGrid = new GameGrid("assets/over.png");
+
+        k.init();
+
+        while (!playing) {
+
+            Thread.sleep(100);
+        }
     }
 
     public void resetElements() {
