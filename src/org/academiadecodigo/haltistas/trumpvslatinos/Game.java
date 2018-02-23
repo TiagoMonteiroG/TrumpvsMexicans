@@ -16,6 +16,7 @@ public class Game {
     private boolean playing;
     private GameGrid gameGrid;
     private Sound sound;
+    private Sound endSound;
 
     public Game() {
         this.money = new Money[10];
@@ -79,9 +80,11 @@ public class Game {
 
         }
 
+        sound.stop();
+        endSound = new Sound ("/assets/Fake.wav");
+        endSound.play(true);
         restartGame();
         resetElements();
-        sound.stop();
         initGame();
 
     }
