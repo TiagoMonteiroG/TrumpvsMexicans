@@ -63,6 +63,7 @@ public class Game {
         CheckCollision checkCollision = new CheckCollision(latino, trump.getPaper(), money, trump);
         sound = new Sound("/assets/El_Sonidito.wav");
         sound.play(true);
+        sound.loopIndef();
         k.start();
         while (playing) {
 
