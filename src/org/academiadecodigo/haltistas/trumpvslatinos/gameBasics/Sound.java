@@ -1,4 +1,4 @@
-package org.academiadecodigo.haltistas.trumpvslatinos;
+package org.academiadecodigo.haltistas.trumpvslatinos.gameBasics;
 
 import javax.sound.sampled.*;
 import java.io.File;
