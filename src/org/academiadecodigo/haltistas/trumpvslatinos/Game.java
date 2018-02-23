@@ -15,8 +15,6 @@ public class Game {
     private KeyHandler k;
     private boolean playing;
     private GameGrid gameGrid;
-    private Sound sound;
-    private Sound endSound;
 
     public Game() {
         this.money = new Money[10];
@@ -62,7 +60,7 @@ public class Game {
         prepare();
 
         CheckCollision checkCollision = new CheckCollision(latino, trump.getPaper(), money, trump);
-        sound = new Sound("/assets/El_Sonidito.wav");
+        Sound sound = new Sound("/assets/El_Sonidito.wav");
         sound.play(true);
         sound.loopIndef();
         k.start();
@@ -81,14 +79,13 @@ public class Game {
         }
 
         sound.stop();
-        endSound = new Sound ("/assets/Fake.wav");
+        Sound endSound = new Sound ("/assets/Fake.wav");
         endSound.play(true);
         restartGame();
         resetElements();
         initGame();
 
     }
-
 
     public void restartGame() throws InterruptedException {
         gameGrid = new GameGrid("assets/over.png");
@@ -131,7 +128,7 @@ public class Game {
             if (l.canMove()) {
                 l.move();
             }
-            int move = (int) Math.floor(Math.random() * 200);
+            int move = (int) Math.floor(Math.random() * 250);
             if (move == 1) {
                 l.start();
             }
