@@ -86,9 +86,6 @@ public class Trump extends GameObject implements Movable {
         this.shooting = bool;
     }
 
-    public void setPaper(int position) {
-        paper[position] = null;
-    }
 
     public void paperShoot() {
         for (int i = 0; i < paper.length; i++) {
@@ -101,7 +98,7 @@ public class Trump extends GameObject implements Movable {
 
             if (paper[i].getY() == GameGrid.PADDING) {
                 paper[i] = null;
-                setPaper(i);
+
             }
 
         }

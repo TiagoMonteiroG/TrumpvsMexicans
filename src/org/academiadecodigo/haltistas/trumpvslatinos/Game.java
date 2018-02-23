@@ -60,10 +60,13 @@ public class Game {
         prepare();
 
         CheckCollision checkCollision = new CheckCollision(latino, trump.getPaper(), money, trump);
+
         Sound sound = new Sound("/assets/El_Sonidito.wav");
         sound.play(true);
         sound.loopIndef();
+
         k.start();
+
         while (playing) {
 
             trump.move();
@@ -81,6 +84,7 @@ public class Game {
         sound.stop();
         Sound endSound = new Sound ("/assets/Fake.wav");
         endSound.play(true);
+
         restartGame();
         resetElements();
         initGame();
